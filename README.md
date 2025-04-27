@@ -23,20 +23,16 @@ This project focuses on the **ISO 26262-compliant development of a one-pedal con
 
 ## **Development Process**
 
-### 1. Concept Phase (ISO 26262)
+### 1. [Concept Phase (ISO 26262)](./1.%20Item%20definition%20%26%20HARA/Item%20definition%20%26%20HARA%20for%20One%20Pedal%20Control.md)
 
 - Conducted **Hazard Analysis and Risk Assessment (HARA)** to define safety goals.
 
 - Decomposed system-level requirements into technical safety requirements (TSRs).
 
-[Doc 1 link here](./1.%20Item%20definition%20%26%20HARA/Item%20definition%20%26%20HARA%20for%20One%20Pedal%20Control.md)
-
-### 2. Modeling & Simulation
+### 2. [Modeling & Simulation](./2.%20Controller_model/Controller_Description.md)
 - **Controller Model**: Designed in Simulink to process pedal input, manage torque requests, and coordinate regenerative braking.
 
 - **Vehicle Plant Model**: Simulated longitudinal dynamics (powertrain, battery, brakes, vehicle dynamics) for closed-loop testing.
-
-[Doc 2 link here](./2.%20Controller_model/Controller_Description.md)
 
 ### 3. Functional Safety Integration
 - Implemented safety mechanisms:
