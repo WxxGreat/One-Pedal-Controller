@@ -96,7 +96,7 @@ and, as usually modeled:
 
 
 $$
-X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}=(X_{air}\cdot50)/3.6···⑤
+X_{tyres}|_ {(X_{tyres}(50\ km/h)=X_{air}\ (50\ km/h)\ )} \rightarrow\ X_{tyres}=\frac{50X_{air}}{3.6}···⑤
 $$
 
 
