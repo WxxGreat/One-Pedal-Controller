@@ -20,7 +20,7 @@ Considering:
 - $r$ the radius of the wheel, expressed in $[m]$
 - $\omega(t)$is the angular speed of the wheel, expressed in $[rad/s]$
 - $\omega_e(t)$ is the angular speed of the engine/electrical motor, expressed in $[rad/s]$
-- $ \omega_{eRPM}(t)=\omega_e(t) \cdot 60/ 2\pi $ is the angular speed of the engine/ electrical motor, expressed in $[revolution\;per\;min]$
+- $ \omega_{eRPM}(t)=\omega_e(t) \cdot \frac{60}{2\pi} $ is the angular speed of the engine/ electrical motor, expressed in $[revolution\;per\;min]$
 - $\dot{\omega}(t)$ is the angular acceleration of the wheel, expressed in $[rad/s^2]$
 - $S$ is the frontal surface of the car, expressed in $[m^2]$
 - $C_x = 0.3$ is the automobile drag coefficient
@@ -33,7 +33,7 @@ An extremely simplified model can be obtained as follow:
 
 
 $$
-\dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}\tag{1}
+\dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}···①
 $$
 
 
@@ -43,7 +43,7 @@ Considering that the torque is equally split between the two wheels (valid only 
 
 
 $$
-T(t)-2F_s(t)\cdot r = 2I\cdot \dot{\omega}(t)\tag{2}
+T(t)-2F_s(t)\cdot r = 2I\cdot \dot{\omega}(t)···②
 $$
 
 
@@ -67,7 +67,7 @@ The drag force that limits the maximum speed of the vehicle is equal to:
 
 
 $$
-F_d\ (v(t))=X_{air}\cdot(v(t))^2+X_{tyres}\cdot v(t)\tag{3}
+F_d\ (v(t))=X_{air}\cdot(v(t))^2+X_{tyres}\cdot v(t)···③
 $$
 
 
@@ -75,7 +75,7 @@ where
 
 
 $$
-X_{air}=\frac{1}{2}\cdot S\rho\cdot c_x\tag{4}
+X_{air}=\frac{1}{2}\cdot S\rho\cdot c_x···④
 $$
 
 
@@ -83,7 +83,7 @@ and, as usually modeled:
 
 
 $$
-X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}=(X_{air}\cdot50)/3.6\tag{5}
+X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}=(X_{air}\cdot50)/3.6···⑤
 $$
 
 
@@ -94,7 +94,7 @@ $$
 v(t)=
 \frac{1}{m} ∫_0^t F_x (t)-F_d (v(t)) dt=
 \frac{1}{m} ∫_0^t 2⋅F_s (t)- F_d (v(t))dt=
-\frac{1}{m} ∫_0^t  \frac{T(t)}{r}- F_d (v(t))dt\tag{6}
+\frac{1}{m} ∫_0^t  \frac{T(t)}{r}- F_d (v(t))dt···⑥
 $$
 
 
@@ -102,7 +102,7 @@ and, by substituting (3) in (6):
 
 
 $$
-v(t)=\frac{1}{m} ∫_0^t \frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅v(t) dt     \tag{7}
+v(t)=\frac{1}{m} ∫_0^t \frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅v(t) dt···⑦
 $$
 
 
@@ -114,7 +114,7 @@ To simulate the slope $\theta$ of the terrain, it is possible to add the gravity
 
 
 $$
-v(t)=\frac{1}{m} ∫_0^t\frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅|v(t)|dt+mgsin⁡(θ)     \tag{8}
+v(t)=\frac{1}{m} ∫_0^t\frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅|v(t)|dt+mgsin⁡(θ)···⑧
 $$
 
 
@@ -197,4 +197,3 @@ With those values, the top speed on level ground reachable by the car is about 2
 | *Reverse*      | **When in the  state of** **“\*Reverse\*”**,  AutomaticTransmissionState set to *Reverse*.     **When BrakePedalPressed is True**, get into substate *reverseStop*, cutting off control of the motor from the throttle pedal -- set TorqueRequest_Nm  = 0.  **When BrakePedalPressed is** **False**, get into substate *normalReverse*, set TorqueRequest_Nm  =  -40* ThrottlePedalPosition, at this time, the vehicle speed will gradually  backward     **When AutomaticTrasmissionSelectorState** **is** **not** **“Reverse”**, the state  transforms to *Neutral*. |
 | *Drive*        | **When in the  state of** **“\*Drive\*”**,  AutomaticTransmissionState set to *Drive*.     **When BrakePedalPressed is True**, get into substate *driveStop*, cutting off control of the  motor from the throttle pedal -- set TorqueRequest_Nm = 0.  **When BrakePedalPressed is** **False**, get into substate *normalDrive*, set TorqueRequest_Nm  =  80* ThrottlePedalPosition. At this time, the vehicle will gradually speed up  with pedal position.     **When AutomaticTrasmissionSelectorState** **is** **“Neutral”**, the state transforms to *Neutral*. |
 | *Brake*        | **When in the  state of** **“\*Brake\*”**,  AutomaticTransmissionState set to *Brake*.     **When BrakePedalPressed is True**, get into substate *BrakeStop*,  cutting off control of the motor from the throttle pedal - set TorqueRequest_Nm  = 0.     **When BrakePedalPressed is** **False**, get into substate *normalBrake*.    ·       **When ThrottlePedalPosition**≤*1/3**, will get  into substate *barkDecele*, the controller requires negative torque according to pedal position set TorqueRequest_Nm  = 240*(ThrottlePedalPosition-1/3).   ·       **When ThrottlePedalPosition>1/3,** will get into  substate *brakeAccle*, the controller requests the corresponding torque  in the interval 1/3 to 1 set TorqueRequest_Nm = 120*(ThrottlePedalPosition-1/3).  ·       **When VehicleSpeed_km_h****≤** **0.2 AND in \*brakeAccle\* sub****state**, will get into substate *brak0Velocity,* the controller will output  negative torque according to the current speed to make the vehicle stop when  the speed is equal to zero.     **When AutomaticTrasmissionSelectorState** **is** **“Neutral” or “Drive”**, the state transforms to *Drive*. |
-
