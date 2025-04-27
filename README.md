@@ -1,6 +1,7 @@
 # One Pedal Controller
 
-    This is a course project for 01OUZQW - Model-based software design in Mechatronics Engineering at Politecnico di Torino.
+    This is a course project for 01OUZQW - Model-based software design (MBD)
+    in Mechatronics Engineering at Politecnico di Torino.
 
  [TOC]
 
@@ -22,11 +23,11 @@ This project focuses on the **ISO 26262-compliant development of a one-pedal con
 
 ## **Development Process**
 
-### 1. Concept Phase (ISO 26262)
+### 1. [Concept Phase (ISO 26262)](../MBSD_Project\1. Item definition & HARA\Item definition & HARA for One Pedal Control.md)
 - Conducted **Hazard Analysis and Risk Assessment (HARA)** to define safety goals.
 - Decomposed system-level requirements into technical safety requirements (TSRs).
 
-### 2. Modeling & Simulation
+### 2. [Modeling & Simulation](..\MBSD_Project\2. Controller_model\Controller_Description.md)
 - **Controller Model**: Designed in Simulink to process pedal input, manage torque requests, and coordinate regenerative braking.
 - **Vehicle Plant Model**: Simulated longitudinal dynamics (powertrain, battery, brakes, vehicle dynamics) for closed-loop testing.
 
