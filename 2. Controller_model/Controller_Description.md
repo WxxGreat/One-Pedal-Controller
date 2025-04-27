@@ -31,96 +31,44 @@ Considering:
 
 An extremely simplified model can be obtained as follow:
 
-
-
-$$
-\dot{v}(t) = \frac{F_x(t)-F_d(v)}{m} \tag{1}
-$$
-
-
+$$\begin{equation}\dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}\tag{1}\end{equation}$$
 
 where $\dot{v}(t)$ is the vehicle acceleration, $m$ is its mass,  $F_x(t)$ is the longitudinal force applied to its center of gravity by the effects of the torque applied on the wheels, and $F_d(v)$ is the sum of the friction forces on the vehicle due to wheel-terrain and vehicle-air interactions.
 
 Considering that the torque is equally split between the two wheels (valid only on straight tracks)
 
-
-
-$$
-T(t)-2F_s(t)\cdot r = 2I\cdot \dot{\omega}(t)\tag{2}
-$$
-
-
+$$\begin{equation}T(t)-2F_s(t)\cdot r = 2I\cdot \dot{\omega}(t)\tag{2} \end{equation}$$
 
 the absence of slipping:
 
-
-
-$$
-\begin{cases} 2r\cdot2F_s(t)= F_x(t)\\ v(t)=2\pi r \cdot \omega(t) \end{cases}
-$$
-
-
+$$\begin{cases} 2r\cdot2F_s(t)= F_x(t)\\ v(t)=2\pi r \cdot \omega(t) \end{cases}$$
 
 and considering the moment of inertia of the wheels $I=0$, we can define the following equation, given that 
 
-
-
-$$
-T(t) = 2r\cdot F_s(t)
-$$
-
-
+$$T(t) = 2r\cdot F_s(t)$$
 
 The drag force that limits the maximum speed of the vehicle is equal to:
 
-
-
-$$
-F_d\ (v(t))=X_{air}\cdot(v(t))^2+X_{tyres}\cdot v(t)\tag{3}
-$$
-
-
+$$\begin{equation} F_d\ (v(t))=X_{air}\cdot(v(t))^2+X_{tyres}\cdot v(t)\tag{3}\end{equation}$$
 
 where
 
-
-
-$$
-X_{air}=1/2\cdot S\cdot c_x\cdot\rho\tag{4}
-$$
-
-
+$$\begin{equation}X_{air}=\frac{1}{2}\cdot S\rho\cdot c_x\tag{4}\end{equation}$$
 
 and, as usually modeled:
 
-
-$$
-X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}=(X_{air}\cdot50)/3.6\tag{5}
-$$
-
-
+$$\begin{equation} X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}=(X_{air}\cdot50)/3.6\tag{5}\end{equation}$$
 
 By substituting the (2) equation in (1), and by integrating both sides, we obtain:
 
-
-
-$$
-v(t)=
+$$\begin{equation} v(t)=
 \frac{1}{m} ∫_0^t F_x (t)-F_d (v(t)) dt=
 \frac{1}{m} ∫_0^t 2⋅F_s (t)- F_d (v(t))dt=
-\frac{1}{m} ∫_0^t  \frac{T(t)}{r}- F_d (v(t))dt\tag{6}
-$$
-
-
+\frac{1}{m} ∫_0^t  \frac{T(t)}{r}- F_d (v(t))dt\tag{6}\end{equation}$$
 
 and, by substituting (3) in (6):
 
-
-$$
-v(t)=\frac{1}{m} ∫_0^t \frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅v(t) dt     \tag{7}
-$$
-
-
+$$\begin{equation} v(t)=\frac{1}{m} ∫_0^t \frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅v(t) dt     \tag{7}\end{equation}$$
 
 Remember that the integrator block of Simulink requires an initial condition corresponding to the vehicle's longitudinal speed at the beginning of the simulation, $v(0)$ . A possible configuration of the integration block is shown in Figure 2.
 
@@ -128,13 +76,7 @@ During the model development, put all the needed gain to obtain as an output of 
 
 To simulate the slope $\theta$ of the terrain, it is possible to add the gravity force $F_g(\theta)$ as follows:
 
-
-
-$$
-v(t)=\frac{1}{m} ∫_0^t\frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅|v(t)|dt+mgsin⁡(θ)     \tag{8}
-$$
-
-
+$$\begin{equation} v(t)=\frac{1}{m} ∫_0^t\frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅|v(t)|dt+mgsin⁡(θ)     \tag{8}\end{equation}$$
 
 With $g = 9.81$ the gravity acceleration on Earth.
 
@@ -148,7 +90,7 @@ Reasonable values for an electric compact car can be:
 
 ![image-20250425201506289](Controller_Description.assets/image-20250425201506289.png)
 
-> Figure 1 Graph showing drag forces of tires (in orange) and air (in blue) at various speeds. It is possible to observe that, as imposed in equation (5), $X_{tyres}=X_{air}$ at $50 km/h$. Below this speed, the tire drag is dominant, after that, the air drag is dominant. Moreover, it is possible to see the top speed of the car (around 230 km/h) when $F_x= \frac{T}{r}=X_{tyre}+X_{air} $ with$F_x=3200N$
+> Figure 1 Graph showing drag forces of tires (in orange) and air (in blue) at various speeds. It is possible to observe that, as imposed in equation (5), $X_{tyres}=X_{air}$ at $50 km/h$. Below this speed, the tire drag is dominant, after that, the air drag is dominant. Moreover, it is possible to see the top speed of the car (around 230 km/h) when $F_x= \frac{T}{r}=X_{tyre}+X_{air}$ with $F_x=3200N$
 
 
 
