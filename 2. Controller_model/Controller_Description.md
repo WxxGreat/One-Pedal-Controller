@@ -18,9 +18,9 @@ Considering:
 - $F_d(v)$ the longitudinal force applied to the vehicle center of gravity due to the frictions with air and terrain, expressed in $[N]$
 - $I$ the moment of inertia of each one of the wheels, expressed in $[kg\cdot m^2]$
 - $r$ the radius of the wheel, expressed in $[m]$
-- $\omega(t)$is the angular speed of the wheel, expressed in $[rad/s]$
+- $\omega(t)$ is the angular speed of the wheel, expressed in $[rad/s]$
 - $\omega_e(t)$ is the angular speed of the engine/electrical motor, expressed in $[rad/s]$
-- $ \omega_{eRPM}(t)=\omega_e(t) \cdot \frac{60}{2 \pi} $ is the angular speed of the engine/ electrical motor, expressed in $[revolution\;per\;min]$
+- $ \omega_{eRPM}(t)=\omega_e(t)\cdot\frac{60}{2\pi} $ is the angular speed of the engine/ electrical motor, expressed in $[revolution\;per\;min]$
 - $\dot{\omega}(t)$ is the angular acceleration of the wheel, expressed in $[rad/s^2]$
 - $S$ is the frontal surface of the car, expressed in $[m^2]$
 - $C_x = 0.3$ is the automobile drag coefficient
