@@ -32,9 +32,11 @@ Considering:
 An extremely simplified model can be obtained as follow:
 
 
+
 $$
 \dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}···①
 $$
+
 
 
 where $\dot{v}(t)$ is the vehicle acceleration, $m$ is its mass,  $F_x(t)$ is the longitudinal force applied to its center of gravity by the effects of the torque applied on the wheels, and $F_d(v)$ is the sum of the friction forces on the vehicle due to wheel-terrain and vehicle-air interactions.
@@ -42,12 +44,15 @@ where $\dot{v}(t)$ is the vehicle acceleration, $m$ is its mass,  $F_x(t)$ is th
 Considering that the torque is equally split between the two wheels (valid only on straight tracks)
 
 
+
 $$
 T(t)-2F_s(t)\cdot r = 2I\cdot \dot{\omega}(t)···②
 $$
 
 
+
 the absence of slipping:
+
 
 
 $$
@@ -55,7 +60,9 @@ $$
 $$
 
 
+
 and considering the moment of inertia of the wheels $I=0$, we can define the following equation, given that 
+
 
 
 $$
@@ -63,7 +70,9 @@ T(t) = 2r\cdot F_s(t)
 $$
 
 
+
 The drag force that limits the maximum speed of the vehicle is equal to:
+
 
 
 $$
@@ -71,7 +80,9 @@ F_d\ (v(t))=X_{air}\cdot(v(t))^2+X_{tyres}\cdot v(t)···③
 $$
 
 
+
 where
+
 
 
 $$
@@ -79,7 +90,9 @@ X_{air}=\frac{1}{2}\cdot S\rho\cdot c_x···④
 $$
 
 
+
 and, as usually modeled:
+
 
 
 $$
@@ -87,7 +100,9 @@ X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}
 $$
 
 
+
 By substituting the (2) equation in (1), and by integrating both sides, we obtain:
+
 
 
 $$
@@ -98,12 +113,15 @@ v(t)=
 $$
 
 
+
 and, by substituting (3) in (6):
+
 
 
 $$
 v(t)=\frac{1}{m} ∫_0^t \frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅v(t) dt···⑦
 $$
+
 
 
 Remember that the integrator block of Simulink requires an initial condition corresponding to the vehicle's longitudinal speed at the beginning of the simulation, $v(0)$ . A possible configuration of the integration block is shown in Figure 2.
@@ -113,9 +131,11 @@ During the model development, put all the needed gain to obtain as an output of 
 To simulate the slope $\theta$ of the terrain, it is possible to add the gravity force $F_g(\theta)$ as follows:
 
 
+
 $$
 v(t)=\frac{1}{m} ∫_0^t\frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅|v(t)|dt+mgsin⁡(θ)···⑧
 $$
+
 
 
 With $g = 9.81$ the gravity acceleration on Earth.
