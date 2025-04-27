@@ -33,15 +33,7 @@ An extremely simplified model can be obtained as follow:
 
 
 $$
-\begin{align\\*}
 \dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}\tag{1}
-\end{align\\*}
-$$
-
-
-
-$$
-\begin{equation} \dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}\tag{1} \end{equation}
 $$
 
 
@@ -51,7 +43,7 @@ Considering that the torque is equally split between the two wheels (valid only 
 
 
 $$
-\begin{equation}T(t)-2F_s(t)\cdot r = 2I\cdot \dot{\omega}(t)\tag{2} \end{equation}
+T(t)-2F_s(t)\cdot r = 2I\cdot \dot{\omega}(t)\tag{2}
 $$
 
 
@@ -75,7 +67,7 @@ The drag force that limits the maximum speed of the vehicle is equal to:
 
 
 $$
-\begin{equation} F_d\ (v(t))=X_{air}\cdot(v(t))^2+X_{tyres}\cdot v(t)\tag{3}\end{equation}
+F_d\ (v(t))=X_{air}\cdot(v(t))^2+X_{tyres}\cdot v(t)\tag{3}
 $$
 
 
@@ -83,7 +75,7 @@ where
 
 
 $$
-\begin{equation}X_{air}=\frac{1}{2}\cdot S\rho\cdot c_x\tag{4}\end{equation}
+X_{air}=\frac{1}{2}\cdot S\rho\cdot c_x\tag{4}
 $$
 
 
@@ -91,7 +83,7 @@ and, as usually modeled:
 
 
 $$
-\begin{equation} X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}=(X_{air}\cdot50)/3.6\tag{5}\end{equation}
+X_{tyres}\ |_(X_{tyres}\ (50\ km/h)=X_{air}\ (50\ km/h)\ )\rightarrow\ X_{tyres}=(X_{air}\cdot50)/3.6\tag{5}
 $$
 
 
@@ -99,10 +91,10 @@ By substituting the (2) equation in (1), and by integrating both sides, we obtai
 
 
 $$
-\begin{equation} v(t)=
+v(t)=
 \frac{1}{m} ∫_0^t F_x (t)-F_d (v(t)) dt=
 \frac{1}{m} ∫_0^t 2⋅F_s (t)- F_d (v(t))dt=
-\frac{1}{m} ∫_0^t  \frac{T(t)}{r}- F_d (v(t))dt\tag{6}\end{equation}
+\frac{1}{m} ∫_0^t  \frac{T(t)}{r}- F_d (v(t))dt\tag{6}
 $$
 
 
@@ -110,7 +102,7 @@ and, by substituting (3) in (6):
 
 
 $$
-\begin{equation} v(t)=\frac{1}{m} ∫_0^t \frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅v(t) dt     \tag{7}\end{equation}
+v(t)=\frac{1}{m} ∫_0^t \frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅v(t) dt     \tag{7}
 $$
 
 
@@ -122,7 +114,7 @@ To simulate the slope $\theta$ of the terrain, it is possible to add the gravity
 
 
 $$
-\begin{equation} v(t)=\frac{1}{m} ∫_0^t\frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅|v(t)|dt+mgsin⁡(θ)     \tag{8}\end{equation}
+v(t)=\frac{1}{m} ∫_0^t\frac{T(t)}{r}-  X_{air}⋅(v(t))^2-X_{tyres}⋅|v(t)|dt+mgsin⁡(θ)     \tag{8}
 $$
 
 

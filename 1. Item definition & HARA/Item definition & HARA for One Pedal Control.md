@@ -38,11 +38,11 @@ The behavior can be described mathematically as follows:
 
 
 $$
-τ_r=-max(τ_a)⋅(1-3p)~~~~~when0<p\le\frac{1}{3} (braking~region).     \tag{1}
+τ_r=-max(τ_a)⋅(1-3p)~~~~~when~~0\lt p\le\frac{1}{3} (braking~region).     \tag{1}
 $$
 
 $$
-τ_r=max(τ_a)⋅\frac{3}{2}⋅ (p-\frac{1}{3})~~~~~when\frac{1}{3}<p≤1 (acceleration~region)\tag{2}
+τ_r=max(τ_a)⋅\frac{3}{2}⋅ (p-\frac{1}{3})~~~~~when~~\frac{1}{3}\lt p\le 1 (acceleration~region)\tag{2}
 $$
 
 where:
