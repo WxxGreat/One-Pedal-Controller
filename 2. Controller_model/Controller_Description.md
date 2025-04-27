@@ -51,7 +51,7 @@ the absence of slipping:
 
 
 $$
-\begin{cases} 2r\cdot2F_s(t)= F_x(t)\\ v(t)=2\pi r \cdot \omega(t) \end{cases}
+\begin{cases} 2r\cdot2F_s(t)= F_x(t)\\\\ v(t)=2\pi r \cdot \omega(t) \end{cases}
 $$
 
 
