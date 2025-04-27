@@ -30,11 +30,15 @@ Considering:
 - $i_t=i_f\cdot i_g$ is the total power train reduction ratio.
 
 An extremely simplified model can be obtained as follow:
+
+
 $$
 \begin{align\\*}
 \dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}\tag{1}
 \end{align\\*}
 $$
+
+
 
 $$
 \begin{equation} \dot{v}(t) = \frac{F_x(t) - F_d(v)}{m}\tag{1} \end{equation}
