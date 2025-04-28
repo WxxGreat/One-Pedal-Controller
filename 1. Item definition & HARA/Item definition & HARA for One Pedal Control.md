@@ -64,7 +64,7 @@ Of course, it is still possible to use the braking pedal in case of emergencies 
 
 ### Functional block diagram
 
-![Functional block diag](Item definition & HARA for One Pedal Control.assets/Functional block diag.svg)
+![Functional block diag](Item%20definition%20%26%20HARA%20for%20One%20Pedal%20Control.assets/Functional%20block%20diag.svg)
 
 ### Boundaries of the system responsibility and interfaces
 
